@@ -1,0 +1,64 @@
+{
+  "name": "Hystrix",
+  "version": "1.0.0",
+  "description": "Hystrix is a latency and fault tolerance library designed to isolate points of access to remote systems, services and 3rd party libraries, stop cascading failure and enable resilience in complex distributed systems where failure is inevitable.",
+  "main": "index.js",
+  "dependencies": {
+    "bunyan": "^1.4.0",
+    "debug": "^2.1.3",
+    "rx": "^3.1.1"
+  },
+  "devDependencies": {
+    "babel": "6.3.26",
+    "babel-cli": "6.4.5",
+    "babel-preset-es2015": "6.3.13",
+    "babel-register": "6.4.3",
+    "chai": "^3.2.0",
+    "del": "^1.2.0",
+    "eslint": "1.10.3",
+    "eslint-config-defaults": "8.0.2",
+    "event-stream": "^3.2.1",
+    "flowcheck": "^0.2.3",
+    "gulp": "^3.8.10",
+    "gulp-eslint": "^1.0.0",
+    "gulp-filesize": "0.0.6",
+    "gulp-inject": "^1.1.1",
+    "gulp-mocha": "^2.0.0",
+    "gulp-notify": "^2.1.0",
+    "gulp-shell": "^0.4.2",
+    "gulp-util": "^3.0.2",
+    "ink-docstrap": "^0.5.2",
+    "istanbul": "0.4.2",
+    "jscs": "^2.0.x",
+    "jsdoc": "^3.4.0",
+    "mocha": "^2.2.5",
+    "pretty-hrtime": "^1.0.0",
+    "require-dir": "^0.1.0",
+    "sinon": "^1.15.4",
+    "supertest": "^1.1.0"
+  },
+  "engines": {
+    "node": ">= 4.2.0"
+  },
+  "scripts": {
+    "test": "DEBUG='hystrix' ./node_modules/.bin/mocha --compilers js:babel-core/register",
+    "cover": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --compilers js:babel-core/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/node-kit/Hystrix.git"
+  },
+  "keywords": [
+    "fault tolerance",
+    "Distributed Systems",
+    "micro",
+    "services",
+    "soa"
+  ],
+  "author": "Ernie Casilla <ecasilla@icloud.com> (http://www.erniecasilla.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/node-kit/Hystrix/issues"
+  },
+  "homepage": "https://github.com/node-kit/Hystrix/issues"
+}
