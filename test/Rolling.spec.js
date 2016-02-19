@@ -94,7 +94,8 @@ describe('Command: ', () => {
      // teardown:
      clock.restore();
    });
-   it('should not increment if given a wrong type', () => {
+
+   it('increment() should throw an error if given a wrong type', () => {
      // setup:
      const now = new Date();
      const clock = sinon.useFakeTimers(now.getTime());
@@ -109,6 +110,7 @@ describe('Command: ', () => {
      // teardown:
      clock.restore();
    });
+
    it('should update the max value of a rolling number', () => {
      // setup:
      const now = new Date();
@@ -124,7 +126,7 @@ describe('Command: ', () => {
      // teardown:
      clock.restore();
    });
-   it('should not update if given a wrong type', () => {
+   it('updateMax() should throw if given a wrong type', () => {
      // setup:
      const now = new Date();
      const clock = sinon.useFakeTimers(now.getTime());
@@ -153,5 +155,70 @@ describe('Command: ', () => {
      clock.restore();
    });
    
+   it('sum() should throw an error if give a invaild date type', () => {
+     // setup:
+     const now = new Date();
+     const clock = sinon.useFakeTimers(now.getTime());
+     const unix = moment.unix(now).valueOf();
+     // when:
+     rolling.buckets = createBuckets(11, now);
+     // then:
+     expect(rolling.sum.bind(rolling,'oops')).to.throw("Invaild Date");
+     // teardown:
+     clock.restore();
+   });
+
+   it('should update the max value for a rolling window', () => {
+     // setup:
+     const now = new Date();
+     const clock = sinon.useFakeTimers(now.getTime());
+     const unix = moment.unix(now).valueOf();
+     rolling.buckets = createBuckets(11, now);
+     // when:
+     const max = rolling.max(now);
+     // then:
+     expect(max).to.equal(9);
+     // teardown:
+     clock.restore();
+   });
+
+   it('max() should throw an error if give a invaild date type', () => {
+     // setup:
+     const now = new Date();
+     const clock = sinon.useFakeTimers(now.getTime());
+     const unix = moment.unix(now).valueOf();
+     // when:
+     rolling.buckets = createBuckets(11, now);
+     // then:
+     expect(rolling.max.bind(rolling,'oops')).to.throw("Invaild Date");
+     // teardown:
+     clock.restore();
+   });
+
+   it('avg() should throw an error if give a invaild date type', () => {
+     // setup:
+     const now = new Date();
+     const clock = sinon.useFakeTimers(now.getTime());
+     const unix = moment.unix(now).valueOf();
+     // when:
+     rolling.buckets = createBuckets(11, now);
+     // then:
+     expect(rolling.avg.bind(rolling,'oops')).to.throw("Invaild Date");
+     // teardown:
+     clock.restore();
+   });
+   it('avg() should return the avg value for all buckets in the 10sec window', () => {
+     // setup:
+     const now = new Date();
+     const clock = sinon.useFakeTimers(now.getTime());
+     const unix = moment.unix(now).valueOf();
+     rolling.buckets = createBuckets(11, now);
+     // when:
+     const avg = rolling.avg(now);
+     // then:
+     expect(avg).to.equal(4.5);
+     // teardown:
+     clock.restore();
+   });
   });
 });
