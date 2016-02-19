@@ -5,6 +5,7 @@
 
   - "defaults/rules/eslint/es6/airbnb"
   - "defaults/rules/eslint/node/airbnb"
+  - "defaults/configurations/node-runtime"
 
 "env":
   "phantom": true

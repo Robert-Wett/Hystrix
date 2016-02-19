@@ -5,7 +5,7 @@ var gulp   = require('gulp'),
 
 gulp.task('test:unit', function () {
     return gulp.src(config.spec.path, {read: false})
-        .pipe(mocha({reporter: 'nyan'}))
+        .pipe(mocha({reporter: 'spec'}))
         .on('error', error); 
 });
 
