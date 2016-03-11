@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import _ from 'lodash';
 import Command from '../lib/Command';
-import { CircuitError } from '../lib/errors';
+import CircuitError from '../lib/errors/CircuitError';
 const context = describe;
 
 describe('Command: ', () => {
@@ -10,7 +10,7 @@ describe('Command: ', () => {
  let sandbox;
   beforeEach( () => {
     command = new Command({commandName:'google.oauth'});
-    sandbox = sinon.sandbox.create(); 
+    sandbox = sinon.sandbox.create();
   });
 
   afterEach(() => {
@@ -67,7 +67,7 @@ describe('Command: ', () => {
      expect(diffCommand.run).to.eql(_.noop);
      expect(diffCommand.commandName).to.eql('twitter.oauth');
     });
-    
+
     it('Should report all events triggered', () => {
       // setup:
      const opts = {commandName:'twitter.oauth',run:_.noop};
@@ -182,4 +182,3 @@ describe('Command: ', () => {
     });
   });
 });
-

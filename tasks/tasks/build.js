@@ -4,8 +4,7 @@ var gulp = require('gulp'),
 // BUILD
 gulp.task('build', [
   'clean',
-  'lint',
+  //'lint',
   'js-doc',
   'test:unit'
 ]);
-

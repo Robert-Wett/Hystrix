@@ -9,12 +9,13 @@
   gulp/tasks/default.js specifies the default set of tasks to run
   when you run `gulp`.
 */
+require('babel-register');
 var require_dir = require('require-dir'),
     gulp        = require('gulp'),
     del         = require('del'),
     config      = require('./tasks/config');
 
-require('babel-core/register');
+
 require_dir('./tasks/tasks',{recurse:true});
 
 // CLEAN

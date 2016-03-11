@@ -17,7 +17,7 @@
     "chai": "^3.2.0",
     "del": "^1.2.0",
     "eslint": "1.10.3",
-    "eslint-config-defaults": "8.0.2",
+    "eslint-config-defaults": "9.0.0",
     "event-stream": "^3.2.1",
     "flowcheck": "^0.2.3",
     "gulp": "^3.8.10",
@@ -42,8 +42,8 @@
     "node": ">= 4.2.0"
   },
   "scripts": {
-    "test": "DEBUG='hystrix' ./node_modules/.bin/mocha --compilers js:babel-core/register",
-    "cover": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --compilers js:babel-core/register"
+    "test": "DEBUG='hystrix' ./node_modules/.bin/mocha --compilers js:babel-register",
+    "cover": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
